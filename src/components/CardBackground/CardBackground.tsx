@@ -1,4 +1,3 @@
-import React, { Children } from 'react';
 import { CardBackgroundProps, CardBackgroundStyle } from './style';
 
 interface Ichildren extends CardBackgroundProps{
