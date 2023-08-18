@@ -42,8 +42,13 @@ export const SobreSearch = styled.div`
     flex-direction: row;
     gap: 5px;
 
+    form{
+        display: flex;
+        gap: 10px;
+    }
+
     input{
-        width: 500px;
+        width: 450px;
         border-radius: 8px;
         padding: 15px;
         border: none;

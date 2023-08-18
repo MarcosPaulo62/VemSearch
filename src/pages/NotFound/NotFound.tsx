@@ -1,6 +1,6 @@
 import { CardBackground } from "../../components/CardBackground/CardBackground";
 import { Link } from 'react-router-dom';
-import { SobreBody, SobreContainer, SobreFooter } from "./style";
+import { BtnNav, SobreBody, SobreContainer, SobreFooter } from "./style";
 import { Button } from "../../components/Button/Button";
 import footerImage from "../../assets/footerImage.png"
 import robo from '../../assets/robô-not-found.png';
@@ -8,7 +8,7 @@ import robo from '../../assets/robô-not-found.png';
 export function NotFound() {
     return (
         <CardBackground width="95vw">
-            <SobreContainer>                
+            <SobreContainer>
                 <SobreBody>
                     <div>
                         <img src={robo} alt="imagem robô triste" />
@@ -16,11 +16,20 @@ export function NotFound() {
                     <div className="mensagem">
                         <h1>404...</h1>
                         <p>Ops, a página que você queria não foi encontrada.</p>
-                        <Link to='/'>
-                            <Button backgroundColor="var(--brand-2)" color="var(--black-85)" border="none" width="300px">
-                                voltar ao inicio
-                            </Button>
-                        </Link>
+
+                        <BtnNav>
+                            <Link to='/'>
+                                <Button backgroundColor="var(--brand-2)" color="var(--black-85)" border="none" width="200px">
+                                    voltar ao inicio
+                                </Button>
+                            </Link>
+                            <Link to={localStorage.getItem("token") ? "/area-logada" : '/login'}>
+                                <Button backgroundColor="var(--brand-2)" color="var(--black-85)" border="none" width="250px">
+                                    iniciar nova busca
+                                </Button>
+                            </Link>
+                        </BtnNav>
+
                     </div>
                 </SobreBody>
                 <SobreFooter>

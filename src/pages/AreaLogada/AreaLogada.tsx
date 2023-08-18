@@ -1,14 +1,31 @@
 import { CardBackground } from "../../components/CardBackground/CardBackground";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SobreContainer, SobreDivCabecalho, SobreFooter, SobreSearch, SobreTextPrincipal } from "./styles";
 import { Button } from "../../components/Button/Button";
 import footerImage from "../../assets/footerImage.png"
+import { set, useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { IFormNome } from "../../utils/interface";
+
 
 
 export function AreaLogada() {
+
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<IFormNome>();
+    const navigate = useNavigate();
+
+
+    
+    const onSubmit = (data: IFormNome) => {
+        navigate(`/resultado-busca/${data.nome}`)
+        console.log(data);
+        reset();
+    };
+
+
     const userLogado = localStorage.getItem("userLogado");
 
-    function logout(){
+    function logout() {
         localStorage.removeItem("userLogado");
         localStorage.removeItem("token");
     }
@@ -26,8 +43,16 @@ export function AreaLogada() {
                     </Link>
                 </SobreDivCabecalho>
                 <SobreSearch>
-                    <input placeholder="busque por um nome ou estado" type="text" />
-                    <Button width={"74px"} color={""} border={"none"} backgroundColor={"var(--brand-2)"} ><span className="material-symbols-rounded">search</span></Button>
+
+
+
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <input placeholder="busque por um nome ou estado" type="text" {...register("nome")} required />
+                        <Button width={"74px"} color={""} border={"none"} backgroundColor={"var(--brand-2)"} ><span className="material-symbols-rounded">search</span></Button>
+                    </form>
+
+
+
                 </SobreSearch>
                 <SobreFooter>
                     <Link to={"/"}>

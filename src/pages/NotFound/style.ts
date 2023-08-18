@@ -48,3 +48,9 @@ export const SobreFooter = styled.div`
         height: 75px;
     }
 `
+
+export const BtnNav = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+`
