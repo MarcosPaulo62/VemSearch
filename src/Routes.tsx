@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Inicio } from "./pages/Inicio/Inicio";
+
 import { Sobre } from "./pages/Sobre/Sobre";
 import { Login } from "./pages/Login/Login";
 import { Cadastro } from "./pages/Cadastro/Cadastro";
@@ -11,7 +11,7 @@ export function RoutesVemSearch() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Inicio/>}/>
+                {/* <Route path="/" element={<Inicio/>}/> */}
                 <Route path="/sobre" element={<Sobre/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/cadastro" element={<Cadastro/>}/>
