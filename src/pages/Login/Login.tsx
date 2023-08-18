@@ -22,13 +22,19 @@ export function Login(){
         <CardBackground width="46vw">
             <MainLogin>
                 <div className='icons'>
-                    <span className="material-symbols-rounded">
-                        home
-                    </span>
-                    <img src={logo} alt="Logo VemSearch application" />
-                    <span className="material-symbols-rounded">
-                        info
-                    </span>
+                    <Link to='/'>
+                        <span className="material-symbols-rounded">
+                            home
+                        </span>
+                    </Link>
+                    <Link to='/'>
+                        <img src={logo} alt="Logo VemSearch application" />
+                    </Link>
+                    <Link to='/sobre'>
+                        <span className="material-symbols-rounded">
+                            info
+                        </span>
+                    </Link>
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -51,6 +57,7 @@ export function Login(){
                     <span>Novo por aqui? <Link className='link' to='/cadastro'>Cadastre-se!</Link></span>
 
                     <Button 
+                        fontSize='24px'
                         border='none'
                         color='var(--black-85)'
                         backgroundColor='var(--brand-2)'
