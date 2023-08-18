@@ -1,34 +1,15 @@
+import { RoutesVemSearch } from "./Routes";
 import { Login } from "./pages/Login/Login";
+import react from "react"
 import { GlobalStyle } from "./styles/global";
 
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
-      <h1>ola</h1>
+    <>
+      <RoutesVemSearch/>
       <GlobalStyle />
-    </div>
+    </>
   );
 }
 
