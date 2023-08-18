@@ -1,10 +1,11 @@
 import { useNavigate, useParams } from "react-router";
 import { CardBackground } from "../../components/CardBackground/CardBackground";
 import { CardResultados } from "../../components/CardResultados/CardResultados";
-import { ContainerResultados } from "./style";
+import { ContainerResultados, DivCabecalhoResultados, DivMeioResultados, SobreFooterR } from "./style";
 import { useEffect } from "react";
 import { Button } from "../../components/Button/Button";
 import { Link } from "react-router-dom";
+import footerImage from "../../assets/footerImage.png"
 
 export function ResultadoBusca() {
     const { nome } = useParams();
@@ -36,20 +37,35 @@ export function ResultadoBusca() {
     }, [])
 
     return (
+
         <CardBackground width="95vw">
+
             <ContainerResultados>
-                <div>
+
+                <DivCabecalhoResultados>
                     <h1>Resultado(s) da sua busca</h1>
                     <span className="material-symbols-rounded">logout</span>
-                </div>
-                <div>
-                    {/* <p>Infelizmente, sua busca pelo nome {nome}, não encontrou resultados!</p> */}
+                </DivCabecalhoResultados>
+
+                <DivMeioResultados>
                     <p>Infelizmente, sua busca não encontrou resultados!</p>
                     <Link to={"/area-logada"}>
-                        <Button width={""} color={""} border={""} backgroundColor={""} >Pesquisar novamente</Button>
+                        <Button width={"320px"} color={""} border={"none"} backgroundColor={"var(--brand-2)"} >Pesquisar novamente</Button>
                     </Link>
-                </div>
+                </DivMeioResultados>
+                <SobreFooterR>
+                    <Link to={"/"}>
+                        <span className="material-symbols-rounded">home</span>
+                    </Link>
+                    <Link to={"/"}>
+                        <img className="img-sobre-footer" src={footerImage} alt="Icon logo" />
+                    </Link>
+                    <Link to={"/sobre"}>
+                        <span className="material-symbols-rounded">info</span>
+                    </Link>
+                </SobreFooterR>
             </ContainerResultados>
+            
         </CardBackground>
     )
 }
