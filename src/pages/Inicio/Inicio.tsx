@@ -1,7 +1,10 @@
+import { CardBackground } from "../../components/CardBackground/CardBackground";
+
 export function Inicio(){
     return(
-        <>
-        INICIO
-        </>
+            <CardBackground width="50vw">
+                BNDJKBSADKBASJDKBASD
+            </CardBackground>
+        
     )
 }
