@@ -18,6 +18,9 @@ export const DivCabecalhoResultados = styled.div`
     
 `
 export const DivMeioResultados = styled.div`
+    height: 80%;
+    overflow-y: scroll;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

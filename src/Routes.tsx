@@ -19,7 +19,7 @@ export function RoutesVemSearch() {
                 <Route path="*" element={<NotFound/>}/>
                 <Route element={<RotaPrivada />}>
                     <Route path="/area-logada" element={<AreaLogada/>}/>
-                <Route path="/resultado-busca/:name" element={<ResultadoBusca/>}/>
+                    <Route path="/resultado-busca/:name" element={<ResultadoBusca/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

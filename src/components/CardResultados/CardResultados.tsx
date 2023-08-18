@@ -11,8 +11,6 @@ export function CardResultados({nome, logradouro, cidade, estado}: APICard) {
     return (
         <ContainerCardResultados>
             <h2>{nome}</h2>
-            <p>{logradouro}</p>
-            <p>`${cidade} - ${estado}`</p>
         </ContainerCardResultados>
     )
 }
