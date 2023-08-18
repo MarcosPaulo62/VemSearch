@@ -1,7 +1,7 @@
 import { styled } from "styled-components"
 
 export interface ButtonProps {
-    width?: string;
+    width: string;
     color: string;
     border: string;
     backgroundColor: string;
