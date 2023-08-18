@@ -5,7 +5,7 @@ export function Inicio(){
     return(
         <>
             <CardBackground>
-                <Button fontSize="24px" width={"120px"} color={"var(--off-white)"} border={"2px solid var(--brand-2)"} backgroundColor={"transparent"}>sobre nós</Button>
+                <Button width={"120px"} color={"var(--off-white)"} border={"2px solid var(--brand-2)"} backgroundColor={"transparent"}>sobre nós</Button>
             </CardBackground>
         </>
     )

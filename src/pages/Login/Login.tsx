@@ -57,7 +57,6 @@ export function Login(){
                     <span>Novo por aqui? <Link className='link' to='/cadastro'>Cadastre-se!</Link></span>
 
                     <Button 
-                        fontSize='24px'
                         border='none'
                         color='var(--black-85)'
                         backgroundColor='var(--brand-2)'
