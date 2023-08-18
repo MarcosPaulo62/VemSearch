@@ -1,22 +1,23 @@
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { CardBackground } from "../../components/CardBackground/CardBackground";
-import { MainLogin } from "./styles";
+import { MainLogin } from "./style";
 import logo from '../../assets/logo.png';
 import { Button } from '../../components/Button/Button';
 import { IFormAuthValues } from '../../utils/interface';
 import { Alert } from '../../components/Alert/Alert';
+import { useState } from 'react';
 
 export function Login(){
+    const apiKey = 'http://vemser-dbc.dbccompany.com.br:39000/vemser/dbc-pessoa-api'
+    const [alert, setAlert] = useState<string>('');
     const navigate = useNavigate();
-    const { register, handleSubmit, reset } = useForm<IFormAuthValues>();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<IFormAuthValues>();
 
     const onSubmit = (data: IFormAuthValues) => {
         loginUser(data);
         reset();
     };
-
-    const apiKey = 'http://vemser-dbc.dbccompany.com.br:39000/vemser/dbc-pessoa-api'
 
     async function loginUser(user: IFormAuthValues){
         const response = await fetch(`${apiKey}/auth`, {
@@ -28,12 +29,22 @@ export function Login(){
         });
 
         if (!response.ok){
-            throw new Error("Erro ao fazer requisição!");
+            console.log("Erro ao fazer requisição!");
+            setAlert(`Aviso: usuário não cadastrado!`);
+            setTimeout(() => setAlert(''), 3000);
+            reset();
+            return;
         }
 
         const token = await response.text();
         localStorage.setItem("token", token);
-        navigate('/area-logada');
+        localStorage.setItem("userLogado", user.login);
+        
+        setAlert('Aguarde, redirecionando...');
+        setTimeout(() => {
+            setAlert(''); 
+            navigate('/area-logada')
+        }, 2000)
     }
 
     return(
@@ -54,7 +65,6 @@ export function Login(){
                         </span>
                     </Link>
                 </div>
-                <Alert backgroundColor='red'>Olá</Alert>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2>Login</h2>
@@ -63,6 +73,7 @@ export function Login(){
                         placeholder='nome'
                         {...register("login")}
                         required
+                        minLength={3}
                     />
 
                     <input 
@@ -83,6 +94,13 @@ export function Login(){
                     >entrar</Button>
                 </form>
             </MainLogin>
+            {alert && (
+                <Alert backgroundColor={
+                    alert == 'Aguarde, redirecionando...' 
+                    ? 'rgba(41, 182, 47, 0.70)'
+                    : 'rgba(228, 96, 0, 0.64)'
+                }>{alert}</Alert>
+            )}
         </CardBackground>
         
     )

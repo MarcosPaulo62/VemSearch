@@ -5,7 +5,7 @@ export interface AlertProps {
 }
 
 export const AlertStyled = styled.div<AlertProps>`
-    width: 250px;
+    width: 260px;
     height: 90px;
     padding: 0 1.5rem;
     display: flex;
@@ -20,4 +20,16 @@ export const AlertStyled = styled.div<AlertProps>`
     right: 4.5rem;
     bottom: 5%;
     border-radius: 4px;
+    animation: desliza .5s;
+
+    @keyframes desliza {
+        from{
+            opacity: 0;
+            right: -260px;
+        }
+        to {
+            opacity: 1;
+            right: 4.5rem;
+        }
+    }
 `
