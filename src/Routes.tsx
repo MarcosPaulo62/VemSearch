@@ -6,6 +6,7 @@ import { Cadastro } from "./pages/Cadastro/Cadastro";
 import { AreaLogada } from "./pages/AreaLogada/AreaLogada";
 import { ResultadoBusca } from "./pages/ResultadoBusca/ResultadoBusca";
 import { NotFound } from "./pages/NotFound/NotFound";
+import { RotaPrivada } from "./pages/layout/RotaPrivada/RotaPrivada";
 
 export function RoutesVemSearch() {
     return (
@@ -15,9 +16,11 @@ export function RoutesVemSearch() {
                 <Route path="/sobre" element={<Sobre/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/cadastro" element={<Cadastro/>}/>
-                <Route path="/area-logada" element={<AreaLogada/>}/>
-                <Route path="/resultado-busca" element={<ResultadoBusca/>}/>
                 <Route path="*" element={<NotFound/>}/>
+                <Route element={<RotaPrivada />}>
+                    <Route path="/area-logada" element={<AreaLogada/>}/>
+                    <Route path="/resultado-busca" element={<ResultadoBusca/>}/>
+                </Route>
             </Routes>
         </BrowserRouter>
     )

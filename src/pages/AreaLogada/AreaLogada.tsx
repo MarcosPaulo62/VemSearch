@@ -6,15 +6,22 @@ import footerImage from "../../assets/footerImage.png"
 
 
 export function AreaLogada() {
+    const userLogado = localStorage.getItem("userLogado");
+
+    function logout(){
+        localStorage.removeItem("userLogado");
+        localStorage.removeItem("token");
+    }
+
     return (
         <CardBackground width="95vw">
             <SobreContainer>
                 <SobreDivCabecalho>
                     <SobreTextPrincipal>
-                        <h1>Olá, FULANO!</h1>
+                        <h1>Olá, {userLogado}!</h1>
                         <h2>Quem você quer encontrar hoje?</h2>
                     </SobreTextPrincipal>
-                    <Link className="link-sobre-logout" to={"/"}>
+                    <Link className="link-sobre-logout" to={"/"} onClick={logout}>
                         <span className="material-symbols-rounded span-logout">logout</span>
                     </Link>
                 </SobreDivCabecalho>

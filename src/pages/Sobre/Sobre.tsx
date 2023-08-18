@@ -21,7 +21,7 @@ export function Sobre() {
                 <p>Com uma abordagem abrangente e inovadora, estamos comprometidos em fornecer uma experiência de busca que vai além dos resultados, criando conexões por todo o Brasil.</p>
                 <p>Seja você um curioso, um pesquisador ou alguém em busca de suas raízes, estamos aqui para ser a sua fonte confiável de informações sobre nomes e as histórias que eles carregam.</p>
             </SobreStyle>
-            <Link to={"/login"}>
+            <Link to={localStorage.getItem("token") ? "/area-logada" : '/login'}>
                 <Button backgroundColor="var(--brand-2)" border="none" color="var(--black-85)" width="320px">iniciar a busca!</Button>
             </Link>
         </CardBackground>

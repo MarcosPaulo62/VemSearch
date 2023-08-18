@@ -17,7 +17,7 @@ export function Inicio(){
                 <InicioStyle>
                     <img className="imgLogo-inicio" src={logo} alt="Logo VemSearch application" />
                     <h1 className="title-inicio">Conectamos nossos usuários por todo país!</h1>
-                    <Link to={"/login"}>
+                    <Link to={localStorage.getItem("token") ? "/area-logada" : '/login'}>
                         <Button backgroundColor="var(--brand-2)" border="none" color="var(--black-85)" width="320px">iniciar a busca!</Button>
                     </Link>
                 </InicioStyle>
