@@ -17,6 +17,7 @@ padding: 14px;
 border-radius: 8px;
 height: 60px;
 box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+font-size: 1.5rem;
 
 width: ${props => props.width};
 color: ${props => props.color};
