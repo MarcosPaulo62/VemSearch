@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
 
-export const MainLogin = styled.main`
+export const MainLogin = styled.div`
     
 `
