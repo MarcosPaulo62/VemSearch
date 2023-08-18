@@ -24,8 +24,8 @@ export function NotFound() {
                                 </Button>
                             </Link>
                             <Link to={localStorage.getItem("token") ? "/area-logada" : '/login'}>
-                                <Button backgroundColor="var(--brand-2)" color="var(--black-85)" border="none" width="250px">
-                                    iniciar nova busca
+                                <Button backgroundColor="var(--brand-2)" color="var(--black-85)" border="none" width="200px">
+                                    iniciar busca
                                 </Button>
                             </Link>
                         </BtnNav>
