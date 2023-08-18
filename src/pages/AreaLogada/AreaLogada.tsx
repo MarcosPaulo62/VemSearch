@@ -47,7 +47,7 @@ export function AreaLogada() {
 
 
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input placeholder="busque por um nome ou estado" type="text" {...register("nome")} required />
+                        <input placeholder="busque por um nome" type="text" {...register("nome")} required />
                         <Button width={"74px"} color={""} border={"none"} backgroundColor={"var(--brand-2)"} ><span className="material-symbols-rounded">search</span></Button>
                     </form>
 
