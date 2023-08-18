@@ -1,22 +1,40 @@
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { CardBackground } from "../../components/CardBackground/CardBackground";
 import { MainLogin } from "./styles";
 import logo from '../../assets/logo.png';
 import { Button } from '../../components/Button/Button';
-
-interface FormData {
-    email: string;
-    senha: string;
-}
+import { IFormAuthValues } from '../../utils/interface';
+import { Alert } from '../../components/Alert/Alert';
 
 export function Login(){
-    const { register, handleSubmit, reset } = useForm<FormData>();
+    const navigate = useNavigate();
+    const { register, handleSubmit, reset } = useForm<IFormAuthValues>();
 
-    const onSubmit = (data: FormData) => {
-        console.log(data);
+    const onSubmit = (data: IFormAuthValues) => {
+        loginUser(data);
         reset();
     };
+
+    const apiKey = 'http://vemser-dbc.dbccompany.com.br:39000/vemser/dbc-pessoa-api'
+
+    async function loginUser(user: IFormAuthValues){
+        const response = await fetch(`${apiKey}/auth`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        });
+
+        if (!response.ok){
+            throw new Error("Erro ao fazer requisição!");
+        }
+
+        const token = await response.text();
+        localStorage.setItem("token", token);
+        navigate('/area-logada');
+    }
 
     return(
         <CardBackground width="46vw">
@@ -36,13 +54,14 @@ export function Login(){
                         </span>
                     </Link>
                 </div>
+                <Alert backgroundColor='red'>Olá</Alert>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2>Login</h2>
                     <input 
-                        type='email'
-                        placeholder='e-mail'
-                        {...register("email")}
+                        type='text'
+                        placeholder='nome'
+                        {...register("login")}
                         required
                     />
 
